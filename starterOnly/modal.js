@@ -23,16 +23,24 @@ function launchModal() {
 
 //nom à 3 lettre
 
-const nom1 = document.querySelector("Nom");
-nom1.addEventListener("input",function(troisletter){
+const nom1 = document.getElementById("last");
+nom1.addEventListener("input",function(troisletter);
+{
 
-  function troisletter(event){
+  function troisletter(event)
+  {
     if(event.target.value<3){
       console.log("veuillez entrer au moins 3 lettres pour le nom")
     } else{
-      nom1.innerHTML = event.target.value;
+      nom1.innerText = event.target.value;
     }
   }
+  
+  });
+/*
+  const prenom = document.getElementById("first");
+  prenom.addEventListener("input",function(troisletter);
+*/
 
 /*
   if (nom1.value.length<3){
@@ -41,9 +49,23 @@ nom1.addEventListener("input",function(troisletter){
       else {
         nom1.innerHTML = event.target.value;
       }
-      */
+
 
 });
+*/
+
+const email = document.getElementById("email");
+const datenaissance = document.getElementById("birthdate");
+const newyork = document.getElementById("location1");
+const sanfrancisco = document.getElementById("location2");
+const seattle = document.getElementById("location3");
+const chicago = document.getElementById("location4");
+const boston = document.getElementById("location5");
+const portland = document.getElementById("location6");
+const tournoi = document.getElementById("quantity");
+
+
+
 
 //si value <3 metre le msg  sinon disparaitre ,
 //data atribute de type error , mettre à l'input un data error
