@@ -22,7 +22,7 @@ function launchModal() {
 
 const fermemodalbtn = document.querySelectorAll('#close');
 fermemodalbtn.addEventListener("click",fermermodal){
-
+  
 function fermermodal
 {
   modal-body.style.display = "none";
