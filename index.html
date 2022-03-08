@@ -58,12 +58,20 @@
           <div class="modal-body">
             <form
               name="reserve"
+              id="formulaire"
               action="index.html"
               method="get"
               onsubmit="return validate();"
             >
+            <!-- <data-error="Firstname must not be empty."
+            data-error-visible="false"
+
+              required pattern="^[A-Za-z\-]+$"
+          -->
               <div
-                class="formData">
+
+                class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom.">
+
                 <label>Prénom</label><br>
                 <input
                   class="text-control"
@@ -71,25 +79,27 @@
                   id="first"
                   name="first"
                   minlength="2"
-                  required pattern="^[A-Za-z\-]+$"
-                  data-error="Firstname must not be empty."
+
+
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
+
                 <label>Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
-                  minlength="3"
+                  minlength="2"
                   required pattern="^[A-Za-z\-]+$"
-                  data-error="Larstname must not be empty."
+
+
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error="Veuillez entrer une adresse mail correcte">
                 <label>E-mail</label><br>
                 <input
                   class="text-control"
@@ -99,7 +109,7 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error="Veuillez entrer une date de naissance correcte">
                 <label>Date de naissance</label><br>
                 <input
                   class="text-control"
