@@ -95,7 +95,7 @@ function submit(e)
   nom1.addEventListener("input",lastletter);
   function lastletter(event)
   {
-    if(event.target.value.length<=2 || regname.test(event.target.value) == false{
+    if((event.target.value.length<=2) || regname.test(event.target.value) == false){
       errormsg(nom1);
        /*formData.style.display = "block";*/
     } else{
