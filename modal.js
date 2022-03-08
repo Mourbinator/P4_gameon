@@ -45,6 +45,7 @@ const chicago = document.getElementById("location4");
 const boston = document.getElementById("location5");
 const portland = document.getElementById("location6");
 const tournoi = document.getElementById("quantity");
+const cgu =  document.getElementById("checkbox1");
 
 //regex
 const regname = /^[a-zA-Z-\s]+$/;
@@ -120,7 +121,21 @@ function submit(e)
   }
 
   //vérif tournois
-  
+
+  //vérif location1
+  if((newyork.checked) || (sanfrancisco.checked) || (seattle.checked) || (chicago.checked) || (boston.checked) || (portland.checked)){
+    errormsghide(location1)
+  }else{
+    errormsg(location1)
+  }
+
+  //vérif cgu
+  if(!cgu.checked){
+    errormsg(cgu);
+  }else{
+    errormsghide(cgu);
+  }
+
 
 
 
