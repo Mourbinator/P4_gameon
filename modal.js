@@ -46,6 +46,7 @@ const boston = document.getElementById("location5");
 const portland = document.getElementById("location6");
 const tournoi = document.getElementById("quantity");
 const cgu =  document.getElementById("checkbox1");
+const submitform = document.querySelector(".btn-submit");
 
 //regex
 const regname = /^[a-zA-Z-\s]+$/;
@@ -62,6 +63,76 @@ function submit(e)
 {
   e.preventDefault();
 
+  //nom à 3 lettre minimum
+
+
+
+    prenom.addEventListener("input",firstletter);
+    function firstletter(event)
+    {
+      if(event.target.value.length<2 || regname.test(event.target.value) == false){
+        errormsg(prenom);
+         /*formData.style.display = "block";*/
+      } else{
+        errormsghide(prenom);
+        //prenom.innerText = event.target.value;
+      }
+    }
+
+    nom1.addEventListener("input",lastletter);
+    function lastletter(event)
+    {
+      if((event.target.value.length<2) || regname.test(event.target.value) == false){
+        errormsg(nom1);
+         /*formData.style.display = "block";*/
+      } else{
+        errormsghide(nom1);
+        //nom1.innerText = event.target.value;
+      }
+    }
+
+    //vérif email
+    if(regmail.test(email.value))
+    {
+      errormsghide(email);
+    }else{
+      errormsg(email);
+    }
+
+    //vérid date de naissance
+    if(regbirth.test(datenaissance.value))
+    {
+      errormsghide(datenaissance);
+    }else{
+      errormsg(datenaissance);
+    }
+
+    //vérif tournois
+
+    //vérif location1
+    if((newyork.checked) || (sanfrancisco.checked) || (seattle.checked) || (chicago.checked) || (boston.checked) || (portland.checked)){
+      errormsghide(location1)
+    }else{
+      errormsg(location1)
+    }
+
+    //vérif cgu
+    if(!cgu.checked){
+      errormsg(cgu);
+    }else{
+      errormsghide(cgu);
+    }
+    if((tournoi.value>98)  || (tournoi.value === "")){
+      errormsg(tournoi)
+    }else{
+      errormsghide(tournoi)
+    }
+
+
+
+
+
+
 
 /*
   if(prenom.value.length <2 ||regname.test(prenom.value) == false)
@@ -75,66 +146,14 @@ function submit(e)
 
 }
 
+submitform.addEventListener("click",function(){
 
-//nom à 3 lettre minimum
+  alert("ferme");
 
+  modal1.innerHTML = "merci pour votre submission";
 
+});
 
-  prenom.addEventListener("input",firstletter);
-  function firstletter(event)
-  {
-    if(event.target.value.length<=2 || regname.test(event.target.value) == false){
-      errormsg(prenom);
-       /*formData.style.display = "block";*/
-    } else{
-      errormsghide(prenom);
-      //prenom.innerText = event.target.value;
-    }
-  }
-
-  nom1.addEventListener("input",lastletter);
-  function lastletter(event)
-  {
-    if((event.target.value.length<=2) || regname.test(event.target.value) == false){
-      errormsg(nom1);
-       /*formData.style.display = "block";*/
-    } else{
-      errormsghide(nom1);
-      //nom1.innerText = event.target.value;
-    }
-  }
-
-  //vérif email
-  if(regmail.test(email.value))
-  {
-    errormsghide(email);
-  }else{
-    errormsg(email);
-  }
-
-  //vérid date de naissance
-  if(regbirth.test(datenaissance.value))
-  {
-    errormsghide(datenaissance);
-  }else{
-    errormsg(datenaissance);
-  }
-
-  //vérif tournois
-
-  //vérif location1
-  if((newyork.checked) || (sanfrancisco.checked) || (seattle.checked) || (chicago.checked) || (boston.checked) || (portland.checked)){
-    errormsghide(location1)
-  }else{
-    errormsg(location1)
-  }
-
-  //vérif cgu
-  if(!cgu.checked){
-    errormsg(cgu);
-  }else{
-    errormsghide(cgu);
-  }
 
 
 
