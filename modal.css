@@ -99,7 +99,7 @@ img {
     display: block;
     margin-top: -15px;
   }
-} 
+}
 
 main {
   font-size: 130%;
@@ -226,7 +226,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
+/*
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
@@ -478,6 +478,17 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+.merci{
+  display:none;
+
+
+  width: 100px;
+  height: 200px;
+  padding: 10px 10px 10px 150px;
+
+
+}
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -526,4 +537,3 @@ footer {
     opacity: 1;
   }
 }
-

@@ -17,7 +17,6 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal() {
-  alert("ok");
   modalbg.style.display = "block";
 }
 
@@ -47,6 +46,7 @@ const portland = document.getElementById("location6");
 const tournoi = document.getElementById("quantity");
 const cgu =  document.getElementById("checkbox1");
 const submitform = document.querySelector(".btn-submit");
+const merci = document.querySelector(".merci");
 
 //regex
 const regname = /^[a-zA-Z-\s]+$/;
@@ -100,12 +100,15 @@ function submit(e)
     }
 
     //vérid date de naissance
+
+
     if(regbirth.test(datenaissance.value))
     {
-      errormsghide(datenaissance);
+       errormsghide(datenaissance);
     }else{
-      errormsg(datenaissance);
+       errormsg(datenaissance);
     }
+
 
     //vérif tournois
 
@@ -122,6 +125,8 @@ function submit(e)
     }else{
       errormsghide(cgu);
     }
+
+    // vérif nombre de tournois
     if((tournoi.value>98)  || (tournoi.value === "")){
       errormsg(tournoi)
     }else{
@@ -131,28 +136,28 @@ function submit(e)
 
 
 
+    submitform.addEventListener("click",function(){
+
+      alert("ferme");
+      if(cgu.checked){
+        showmerci();
+      }
+
+      //modal1.innerHTML = "merci pour votre //submission";
+
+
+    });
 
 
 
-/*
-  if(prenom.value.length <2 ||regname.test(prenom.value) == false)
-  {
-    errormsg(prenom);
-  } else {
-    errormsghide(prenom);
-    prenom.innerText = event.target.value;
-  }
-  */
+
+
+
 
 }
 
-submitform.addEventListener("click",function(){
 
-  alert("ferme");
 
-  modal1.innerHTML = "merci pour votre submission";
-
-});
 
 
 
@@ -171,6 +176,10 @@ function errormsghide(elt){
   elt.closest(".formData").dataset.errorVisible = "false";
 }
 
+function showmerci(){
+  merci.style.display = "block";
+}
+
 
 /*
   const prenom = document.getElementById("first");
@@ -179,17 +188,7 @@ function errormsghide(elt){
 
 */
 
-/*
-  if (nom1.value.length<3){
-    nom1.length = "veuillez entrer au moins 3 lettres pour le nom";
-      }
-      else {
-        nom1.innerHTML = event.target.value;
-      }
 
-
-});
-*/
 
 
 
