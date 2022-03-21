@@ -138,9 +138,10 @@ function submit(e)
 
     submitform.addEventListener("click",function(){
 
-      alert("ferme");
       if(cgu.checked){
         showmerci();
+      }else{
+        hidemerci();
       }
 
       //modal1.innerHTML = "merci pour votre //submission";
@@ -178,6 +179,9 @@ function errormsghide(elt){
 
 function showmerci(){
   merci.style.display = "block";
+}
+function hidemerci(){
+  merci.style.display = "";
 }
 
 
