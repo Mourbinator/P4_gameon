@@ -21,6 +21,7 @@ function launchModal() {
 }
 
 const fermemodalbtn = document.querySelector(".close");
+
 fermemodalbtn.addEventListener("click",fermermodal);
 
 let modal1 =  document.querySelector('.bground');
@@ -138,7 +139,8 @@ function submit(e)
 
     submitform.addEventListener("click",function(){
 
-      if(cgu.checked){
+      if( cgu.checked && tournoi.value && ((newyork.checked) || (sanfrancisco.checked) || (seattle.checked) || (chicago.checked) || (boston.checked) || (portland.checked)) && datenaissance.value && email.value && event.target.value ){
+
         showmerci();
       }else{
         hidemerci();
@@ -178,6 +180,7 @@ function errormsghide(elt){
 }
 
 function showmerci(){
+  formulaire.style.display = "none";
   merci.style.display = "block";
 }
 function hidemerci(){
