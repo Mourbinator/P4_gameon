@@ -181,7 +181,7 @@ function errormsghide(elt){
 
 function showmerci(){
   formulaire.style.display = "none";
-  merci.style.display = "block";
+  merci.style.display = "flex";
 }
 function hidemerci(){
   merci.style.display = "";
