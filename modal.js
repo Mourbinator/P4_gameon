@@ -137,26 +137,14 @@ function submit(e)
   });
 
 
-    //formulaire.reset();
+
 
 
 
 }
+formulaire.reset();
 
-//event boutton submit
-/*
-submitform.addEventListener("click",function()
-    {
 
-      if( cgu.checked && tournoi.value && ((newyork.checked) || (sanfrancisco.checked) || (seattle.checked) || (chicago.checked) || (boston.checked) || (portland.checked)) && datenaissance.value && email.value && event.target.value ){
-
-        showmerci();
-      }else{
-        hidemerci();
-      }
-
-    });
-    */
 
 //event input du nom et prénom
 prenom.addEventListener("input",firstletter);
@@ -196,6 +184,6 @@ function showmerci(){
 }
 function hidemerci(){
   merci.style.display = "";
-  formulaire.style.display = "";
+  formulaire.style.display = "block";
 
 }
