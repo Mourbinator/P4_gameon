@@ -32,7 +32,7 @@ function fermermodal()
  modal1.style.display = "none";
 }
 
-// Balise formulaire
+// Balises formulaire
 const formulaire = document.forms["reserve"];
 const nom1 = document.getElementById("last");
 const prenom = document.getElementById("first");
@@ -46,7 +46,7 @@ const boston = document.getElementById("location5");
 const portland = document.getElementById("location6");
 const tournoi = document.getElementById("quantity");
 const cgu =  document.getElementById("checkbox1");
-const submitform = document.querySelector(".btn-submit");
+const submitform = document.getElementById("submit1");
 const merci = document.querySelector(".merci");
 
 //regex
@@ -64,35 +64,26 @@ function submit(e)
 {
   e.preventDefault();
 
-  //nom à 3 lettre minimum
+  //prénom et nom nom à 2 lettre minimum
+
+  if(prenom.value.length<2 || regname.test(prenom.value) == false)
+  {
+    errormsg(prenom);
+  } else{
+    errormsghide(prenom);
+
+  }
+
+  if((nom1.value.length<2) || regname.test(nom1.value) == false)
+  {
+    errormsg(nom1);
+  } else{
+    errormsghide(nom1);
+  }
 
 
 
-    prenom.addEventListener("input",firstletter);
-    function firstletter(event)
-    {
-      if(event.target.value.length<2 || regname.test(event.target.value) == false){
-        errormsg(prenom);
-         /*formData.style.display = "block";*/
-      } else{
-        errormsghide(prenom);
-        //prenom.innerText = event.target.value;
-      }
-    }
-
-    nom1.addEventListener("input",lastletter);
-    function lastletter(event)
-    {
-      if((event.target.value.length<2) || regname.test(event.target.value) == false){
-        errormsg(nom1);
-         /*formData.style.display = "block";*/
-      } else{
-        errormsghide(nom1);
-        //nom1.innerText = event.target.value;
-      }
-    }
-
-    //vérif email
+    //vérification email
     if(regmail.test(email.value))
     {
       errormsghide(email);
@@ -100,9 +91,7 @@ function submit(e)
       errormsg(email);
     }
 
-    //vérid date de naissance
-
-
+    //vérification date de naissance
     if(regbirth.test(datenaissance.value))
     {
        errormsghide(datenaissance);
@@ -111,7 +100,7 @@ function submit(e)
     }
 
 
-    //vérif tournois
+
 
     //vérif location1
     if((newyork.checked) || (sanfrancisco.checked) || (seattle.checked) || (chicago.checked) || (boston.checked) || (portland.checked)){
@@ -134,10 +123,30 @@ function submit(e)
       errormsghide(tournoi)
     }
 
+    //vérification toute condition ay clic pour soumission form
+  submitform.addEventListener("click",function()
+  {
+      if( cgu.checked && tournoi.value && ((newyork.checked) || (sanfrancisco.checked) || (seattle.checked) || (chicago.checked) || (boston.checked) || (portland.checked)) && datenaissance.value && email.value && event.target.value )
+      {
+      showmerci();
+
+      }else{
+      hidemerci();
+    }
+
+  });
+
+
+    //formulaire.reset();
 
 
 
-    submitform.addEventListener("click",function(){
+}
+
+//event boutton submit
+/*
+submitform.addEventListener("click",function()
+    {
 
       if( cgu.checked && tournoi.value && ((newyork.checked) || (sanfrancisco.checked) || (seattle.checked) || (chicago.checked) || (boston.checked) || (portland.checked)) && datenaissance.value && email.value && event.target.value ){
 
@@ -146,32 +155,33 @@ function submit(e)
         hidemerci();
       }
 
-      //modal1.innerHTML = "merci pour votre //submission";
-
-
     });
+    */
 
-
-
-
-
-
-
+//event input du nom et prénom
+prenom.addEventListener("input",firstletter);
+function firstletter(event)
+{
+  if(event.target.value.length<2 || regname.test(event.target.value) == false){
+    errormsg(prenom);
+  } else{
+    errormsghide(prenom);
+  }
 }
 
+nom1.addEventListener("input",lastletter);
+function lastletter(event)
+{
+  if((event.target.value.length<2) || regname.test(event.target.value) == false){
+    errormsg(nom1);
 
+  } else{
+    errormsghide(nom1);
 
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
+//fonctions d'erreur message
 function errormsg(elt){
   elt.closest(".formData").dataset.errorVisible = "true";
 }
@@ -179,29 +189,13 @@ function errormsghide(elt){
   elt.closest(".formData").dataset.errorVisible = "false";
 }
 
+//fonctions affichage erreur message
 function showmerci(){
   formulaire.style.display = "none";
   merci.style.display = "flex";
 }
 function hidemerci(){
   merci.style.display = "";
+  formulaire.style.display = "";
+
 }
-
-
-/*
-  const prenom = document.getElementById("first");
-  <data-error="Firstname must not be empty."
-  data-error-visible="false"
-
-*/
-
-
-
-
-
-
-
-
-//si value <3 metre le msg  sinon disparaitre ,
-//data atribute de type error , mettre à l'input un data error
-//data error();
